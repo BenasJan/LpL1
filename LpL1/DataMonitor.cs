@@ -4,17 +4,17 @@ using System.Collections.Generic;
 
 namespace LpL1
 {
-    public class DataMonitor<TData> : IEnumerable<TData>
+    public class DataMonitor : IEnumerable<Vehicle>
     {
         private int _lastIndex = 0;
-        private TData[] Data { get; set; }
+        private Vehicle[] Data { get; set; }
 
         public DataMonitor(int size)
         {
-            Data = new TData[size];
+            Data = new Vehicle[size];
         }
 
-        public void Add(TData newItem)
+        public void Add(Vehicle newItem)
         {
             if (_lastIndex >= Data.Length)
             {
@@ -25,9 +25,9 @@ namespace LpL1
             _lastIndex++;
         }
 
-        public IEnumerator<TData> GetEnumerator()
+        public IEnumerator<Vehicle> GetEnumerator()
         {
-            return ((IEnumerable<TData>) Data).GetEnumerator();
+            return ((IEnumerable<Vehicle>) Data).GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -35,6 +35,6 @@ namespace LpL1
             return GetEnumerator();
         }
         
-        public TData this [int index] => Data[index];
+        public Vehicle this [int index] => Data[index];
     }
 }
