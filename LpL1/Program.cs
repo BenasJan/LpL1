@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading;
+using LpL1.Monitors;
 
 namespace LpL1
 {
@@ -18,34 +17,11 @@ namespace LpL1
             {
                 dataMonitor.Add(vehicle);
             }
-            
-            var threads = new List<Thread>();
-            
-            for(var i = 0; i <= vehicles.Count; i += 4)
-            {
-                var workerVehicles = new Vehicle[]
-                {
-                    dataMonitor[i],
-                    dataMonitor[i + 1],
-                    dataMonitor[i + 2],
-                    dataMonitor[i + 3]
-                };
 
-                var worker = new Worker(workerVehicles, resultMonitor);
-                threads.Add(new Thread(worker.Execute));
-            }
+            var threads = ThreadService.GetThreads(dataMonitor, resultMonitor);
+            ThreadService.RunThreads(threads);
 
-            foreach (var thread in threads)
-            {
-                thread.Start();
-            }
-            
-            foreach (var thread in threads)
-            {
-                thread.Join();
-            }
-
-            Console.WriteLine(resultMonitor);
+            resultMonitor.PrintToFile("Results.txt");
         }
     }
 }

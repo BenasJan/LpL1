@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using LpL1.Data;
+using LpL1.Models;
+using LpL1.Monitors;
 
 namespace LpL1
 {
     public class Worker
     {
         private readonly Vehicle[] _vehiclesToProcess;
-        public ResultMonitor ResultMonitor { get; set; }
+        private ResultMonitor ResultMonitor { get; set; }
         public Worker(IEnumerable<Vehicle> vehicles, ResultMonitor resultMonitor)
         {
             _vehiclesToProcess = vehicles.Select(v => v).ToArray();
@@ -23,8 +24,7 @@ namespace LpL1
             foreach (var vehicle in _vehiclesToProcess)
             {
                 var hash = CalculateVehicleHash(vehicle);
-                
-                ResultMonitor.Add(new ProcessedVehicle
+                var newProcessedVehicle = new ProcessedVehicle
                 {
                     Manufacturer = vehicle.Manufacturer,
                     Model = vehicle.Model,
@@ -32,10 +32,15 @@ namespace LpL1
                     YearManufactured = vehicle.YearManufactured,
                     VinNumber = vehicle.VinNumber,
                     Hash = hash
-                });
+                };
+                
+                lock (ResultMonitor)
+                {
+                    ResultMonitor.Add(newProcessedVehicle);
+                }
             }
             
-            Thread.Sleep(TimeSpan.FromSeconds(1));
+            Thread.Sleep(TimeSpan.FromSeconds(3));
             
             Console.WriteLine("Worker has finished execution");
         }

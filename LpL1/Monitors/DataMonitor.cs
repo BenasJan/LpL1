@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using LpL1.Models;
 
-namespace LpL1
+namespace LpL1.Monitors
 {
     public class DataMonitor : IEnumerable<Vehicle>
     {
@@ -35,6 +36,6 @@ namespace LpL1
             return GetEnumerator();
         }
         
-        public Vehicle this [int index] => Data[index];
+        public Vehicle this [int index] => index >= Data.Length ? null : Data[index];
     }
 }
