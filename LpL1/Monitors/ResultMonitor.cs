@@ -39,7 +39,10 @@ namespace LpL1.Monitors
             outputFileStream.WriteLine(tableBorder);
             foreach (var vehicle in Data)
             {
-                outputFileStream.WriteLine(vehicle.ToString());
+                if (vehicle != null)
+                {
+                    outputFileStream.WriteLine(vehicle.ToString());
+                }
             }
             outputFileStream.WriteLine(tableBorder);
             outputFileStream.WriteLine();

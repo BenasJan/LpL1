@@ -8,15 +8,12 @@ namespace LpL1.Monitors
 {
     public class DataMonitor : IEnumerable<Vehicle>
     {
-        private static readonly object AddItemPadlock = new();
-        private static readonly object GetItemPadlock = new();
-        
         public bool ItemsExist => _maxSize > _takenItemsCount;
-        public bool AllItemsAdded => !(_maxSize > _addedItemsCount);
+        private bool AllItemsAdded => !(_maxSize > _addedItemsCount);
         
         private int _lastIndex = -1;
         private Vehicle[] Data { get; set; }
-        private readonly int _maxSize;
+        private int _maxSize;
         private int _addedItemsCount;
         private int _takenItemsCount;
 
@@ -57,6 +54,11 @@ namespace LpL1.Monitors
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
+        }
+
+        public void UpdateMaxSize(int updatedMaxSize)
+        {
+            _maxSize = updatedMaxSize;
         }
     }
 }

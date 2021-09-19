@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using LpL1.Monitors;
+using LpL1.Services;
 
 namespace LpL1
 {
@@ -15,11 +17,20 @@ namespace LpL1
 
             var threads = ThreadService.GetThreads(dataMonitor, resultMonitor);
             
+            var validVehicleCount = 0;
             ThreadService.StartThreads(threads);
-            foreach (var vehicle in vehicles)
+            foreach (var vehicle in
+                from vehicle
+                in vehicles
+                let isValid = VehicleValidationService.IsVehicleValid(vehicle)
+                where isValid
+                select vehicle)
             {
                 dataMonitor.AddItem(vehicle);
+                validVehicleCount++;
             }
+            dataMonitor.UpdateMaxSize(validVehicleCount);
+            
             ThreadService.JoinThreads(threads);
             
             resultMonitor.PrintToFile("Results.txt");

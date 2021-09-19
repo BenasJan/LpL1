@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using LpL1.Monitors;
 
-namespace LpL1
+namespace LpL1.Services
 {
     public static class ThreadService
     {
@@ -11,7 +10,7 @@ namespace LpL1
         {
             var threads = new List<Thread>();
 
-            for (int i = 0; i < 10; i++)
+            for (var i = 0; i < Constants.ThreadCount; i++)
             {
                 var worker = new Worker(resultMonitor, dataMonitor);
                 threads.Add(new Thread(worker.Execute));

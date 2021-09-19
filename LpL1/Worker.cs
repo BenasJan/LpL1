@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using LpL1.Models;
 using LpL1.Monitors;
 
@@ -62,8 +63,16 @@ namespace LpL1
             {
                 sum += character;
             }
-            Thread.Sleep(TimeSpan.FromSeconds(1));
             
+            for (var j = 0; j < 10000; j++)
+            { 
+                for (var i = 0; i < 10000; i++)
+                {
+                    j += 1;
+                    j -= 1;
+                }
+            }
+
             return sum.ToString();
         }
     }
