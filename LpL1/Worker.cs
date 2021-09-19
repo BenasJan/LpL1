@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using LpL1.Models;
 using LpL1.Monitors;
 
@@ -10,20 +6,20 @@ namespace LpL1
 {
     public class Worker
     {
-        private Guid WorkerId;
+        private readonly Guid _workerId;
         private DataMonitor DataMonitor { get; set; }
         private ResultMonitor ResultMonitor { get; set; }
         
         public Worker(ResultMonitor resultMonitor, DataMonitor dataMonitor)
         {
-            WorkerId = Guid.NewGuid();
+            _workerId = Guid.NewGuid();
             ResultMonitor = resultMonitor;
             DataMonitor = dataMonitor;
         }
 
         public void Execute()
         {
-            Console.WriteLine($"Worker (ID: {WorkerId}) is starting execution");
+            Console.WriteLine($"Worker (ID: {_workerId}) is starting execution");
             
             while (DataMonitor.ItemsExist)
             {
@@ -54,7 +50,7 @@ namespace LpL1
 
         private string CalculateVehicleHash(Vehicle vehicle)
         {
-            Console.WriteLine($"Worker (ID: {WorkerId}) is processing a vehicle");
+            Console.WriteLine($"Worker (ID: {_workerId}) is processing a vehicle");
             var sum = 0;
             var hashString =
                 $"{vehicle.Manufacturer}{vehicle.Model}{vehicle.YearManufactured}{vehicle.Price}{vehicle.VinNumber}";
