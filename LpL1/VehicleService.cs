@@ -11,7 +11,7 @@ namespace LpL1
     {
         public static List<Vehicle> GetVehicles()
         {
-            var jsonString = File.ReadAllText(Constants.InvalidVehiclesFilePath);
+            var jsonString = File.ReadAllText(Constants.ValidVehiclesFilePath);
             
             var vehicles = JsonSerializer.Deserialize<List<Vehicle>>(jsonString);
             var validVehicles = GetValidVehicles(vehicles);
@@ -30,23 +30,6 @@ namespace LpL1
             );
 
             return validVehicles.ToList();
-        }
-
-        public static Vehicle[] GetVehiclesForWorker(DataMonitor dataMonitor, int startingIndex)
-        {
-            var vehicleList = new List<Vehicle>();
-            
-            for(var i = startingIndex; i < startingIndex + Constants.ItemCountPerWorker; i++)
-            {
-                var vehicle = dataMonitor[i];
-
-                if (vehicle != null)
-                {
-                    vehicleList.Add(vehicle);
-                }
-            }
-
-            return vehicleList.ToArray();
         }
     }
 }

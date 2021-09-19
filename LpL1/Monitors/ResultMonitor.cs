@@ -1,11 +1,13 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using LpL1.Models;
 
 namespace LpL1.Monitors
 {
     public class ResultMonitor
     {
-        private int _lastIndex = 0;
+        private static readonly object AddItemPadlock = new();
+        private int _lastIndex = -1;
         private ProcessedVehicle[] Data { get; }
 
         public ResultMonitor(int size)
@@ -13,10 +15,14 @@ namespace LpL1.Monitors
             Data = new ProcessedVehicle[size];
         }
 
-        public void Add(ProcessedVehicle processedVehicle)
+        public void AddItem(ProcessedVehicle processedVehicle)
         {
-            Data[_lastIndex] = processedVehicle;
-            _lastIndex++;
+            lock (AddItemPadlock)
+            {
+                _lastIndex++;
+                // Console.WriteLine($"INSERTING INTO RESULT MONITOR:\nLAST INDEX: {_lastIndex}\nDATA SIZE: {Data.Length}");
+                Data[_lastIndex] = processedVehicle;
+            }
         }
         
         public void PrintToFile(string fileName)

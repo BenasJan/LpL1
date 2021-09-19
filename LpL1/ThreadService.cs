@@ -7,28 +7,29 @@ namespace LpL1
 {
     public static class ThreadService
     {
-        public static List<Thread> GetThreads(DataMonitor dataMonitor, ResultMonitor resultMonitor)
+        public static Thread[] GetThreads(DataMonitor dataMonitor, ResultMonitor resultMonitor)
         {
             var threads = new List<Thread>();
-            
-            for(var i = 0; i < dataMonitor.Count(); i += Constants.ItemCountPerWorker)
-            {
-                var workerVehicles = VehicleService.GetVehiclesForWorker(dataMonitor, i);
 
-                var worker = new Worker(workerVehicles, resultMonitor);
+            for (int i = 0; i < 10; i++)
+            {
+                var worker = new Worker(resultMonitor, dataMonitor);
                 threads.Add(new Thread(worker.Execute));
             }
 
-            return threads;
+            return threads.ToArray();
         }
 
-        public static void RunThreads(List<Thread> threads)
+        public static void StartThreads(Thread[] threads)
         {
             foreach (var thread in threads)
             {
                 thread.Start();
             }
-            
+        }
+
+        public static void JoinThreads(Thread[] threads)
+        {
             foreach (var thread in threads)
             {
                 thread.Join();

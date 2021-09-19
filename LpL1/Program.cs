@@ -9,18 +9,19 @@ namespace LpL1
         private static void Main(string[] args)
         {
             var vehicles = VehicleService.GetVehicles();
-
+            
             var dataMonitor = new DataMonitor(vehicles.Count);
             var resultMonitor = new ResultMonitor(vehicles.Count);
 
+            var threads = ThreadService.GetThreads(dataMonitor, resultMonitor);
+            
+            ThreadService.StartThreads(threads);
             foreach (var vehicle in vehicles)
             {
-                dataMonitor.Add(vehicle);
+                dataMonitor.AddItem(vehicle);
             }
-
-            var threads = ThreadService.GetThreads(dataMonitor, resultMonitor);
-            ThreadService.RunThreads(threads);
-
+            ThreadService.JoinThreads(threads);
+            
             resultMonitor.PrintToFile("Results.txt");
         }
     }

@@ -9,21 +9,32 @@ namespace LpL1
 {
     public class Worker
     {
-        private readonly Vehicle[] _vehiclesToProcess;
+        private Guid WorkerId;
+        private DataMonitor DataMonitor { get; set; }
         private ResultMonitor ResultMonitor { get; set; }
-        public Worker(IEnumerable<Vehicle> vehicles, ResultMonitor resultMonitor)
+        
+        public Worker(ResultMonitor resultMonitor, DataMonitor dataMonitor)
         {
-            _vehiclesToProcess = vehicles.Select(v => v).ToArray();
+            WorkerId = Guid.NewGuid();
             ResultMonitor = resultMonitor;
+            DataMonitor = dataMonitor;
         }
 
         public void Execute()
         {
-            Console.WriteLine("Worker is starting execution");
-
-            foreach (var vehicle in _vehiclesToProcess)
+            Console.WriteLine($"Worker (ID: {WorkerId}) is starting execution");
+            
+            while (DataMonitor.ItemsExist)
             {
+                var vehicle = DataMonitor.GetItem();
+                
+                if (vehicle == null)
+                {
+                    continue;
+                }
+                
                 var hash = CalculateVehicleHash(vehicle);
+                
                 var newProcessedVehicle = new ProcessedVehicle
                 {
                     Manufacturer = vehicle.Manufacturer,
@@ -33,20 +44,16 @@ namespace LpL1
                     VinNumber = vehicle.VinNumber,
                     Hash = hash
                 };
-                
-                lock (ResultMonitor)
-                {
-                    ResultMonitor.Add(newProcessedVehicle);
-                }
+
+                ResultMonitor.AddItem(newProcessedVehicle);
             }
-            
-            Thread.Sleep(TimeSpan.FromSeconds(3));
-            
+
             Console.WriteLine("Worker has finished execution");
         }
 
         private string CalculateVehicleHash(Vehicle vehicle)
         {
+            Console.WriteLine($"Worker (ID: {WorkerId}) is processing a vehicle");
             var sum = 0;
             var hashString =
                 $"{vehicle.Manufacturer}{vehicle.Model}{vehicle.YearManufactured}{vehicle.Price}{vehicle.VinNumber}";
@@ -55,7 +62,8 @@ namespace LpL1
             {
                 sum += character;
             }
-
+            Thread.Sleep(TimeSpan.FromSeconds(1));
+            
             return sum.ToString();
         }
     }
