@@ -7,6 +7,7 @@ namespace LpL1.Monitors
 {
     public class DataMonitor : IEnumerable<Vehicle>
     {
+        private readonly object _padlock = new ();
         public bool ItemsExist => _maxSize > _takenItemsCount;
         private bool AllItemsAdded => !(_maxSize > _addedItemsCount);
         
@@ -24,25 +25,31 @@ namespace LpL1.Monitors
 
         public void AddItem(Vehicle newItem)
         {
-            if (_lastIndex >= Data.Length || AllItemsAdded)
-            { 
-                throw new IndexOutOfRangeException("No more space in data monitor left");
-            }
+            lock (_padlock)
+            {
+                if (_lastIndex >= Data.Length || AllItemsAdded)
+                { 
+                    throw new IndexOutOfRangeException("No more space in data monitor left");
+                }
             
-            _lastIndex++;
-            Data[_lastIndex] = newItem;
-            _addedItemsCount++;
+                _lastIndex++;
+                Data[_lastIndex] = newItem;
+                _addedItemsCount++;
+            }
         }
 
         public Vehicle GetItem()
         {
-            var vehicleToReturn = Data[_lastIndex];
+            lock (_padlock)
+            {
+                var vehicleToReturn = Data[_lastIndex];
             
-            Data[_lastIndex] = null;
-            _lastIndex = _lastIndex <= 0 ? 0 : _lastIndex - 1;
-            _takenItemsCount++;
+                Data[_lastIndex] = null;
+                _lastIndex = _lastIndex <= 0 ? 0 : _lastIndex - 1;
+                _takenItemsCount++;
             
-            return vehicleToReturn;
+                return vehicleToReturn;
+            }
         }
 
         public IEnumerator<Vehicle> GetEnumerator()

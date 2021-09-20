@@ -2,103 +2,47 @@ Vehicles:
 -------------------------------------------------------------------------------------
 |Manufacturer   |Model                         |Year|Price  |VIN              |Hash |
 -------------------------------------------------------------------------------------
-|Subaru         |Outback                       |2007|2164.84|WBANW53569C208238| 2928|
-|Dodge          |Magnum                        |2007|3232.71|JH4DC44501S297104| 2630|
-|Buick          |Rainier                       |2005|2192.14|WDDNG7BB5AA221345| 2807|
 |Hummer         |H3                            |2006| 1865.5|WAUML44D42N969753| 2325|
+|Buick          |Rainier                       |2005|2192.14|WDDNG7BB5AA221345| 2807|
 |Audi           |A4                            |1999|2721.65|1B3CB1HA3AD612747| 2065|
-|Toyota         |Corolla                       |2001|2389.71|1C6RD6NT1CS490045| 2960|
-|Chevrolet      |Beretta                       |1995|3159.04|1FTEW1E80AK643685| 3264|
-|Nissan         |240SX                         |1995|2561.99|3C63D3LL4CG868762| 2532|
-|Acura          |NSX                           |1997|3214.46|5TDBW5G14DS298655| 2370|
-|Volkswagen     |Type 2                        |1990|1595.56|1N4AL3APXDC164083| 3182|
-|Subaru         |Brat                          |1986|2630.99|YV1382MSXA2303560| 2647|
 |Saab           |9-2X                          |2005| 3445.6|2G61R5S34D9430921| 2099|
-|Porsche        |Boxster                       |2003|   3124|1N6AA0CC0AN785323| 2866|
-|Kia            |Mentor                        |1997| 1957.1|WBAHN03586D718261| 2444|
-|Pontiac        |Tempest                       |1961|2673.93|WP0AD2A74EL358840| 3060|
-|Chevrolet      |Venture                       |2001|2018.41|JTDZN3EU3D3660964| 3318|
+|Subaru         |Brat                          |1986|2630.99|YV1382MSXA2303560| 2647|
 |Chrysler       |300M                          |2000|1843.37|1D4PU5GK1BW889689| 2693|
-|Mercury        |Grand Marquis                 |1989|1799.18|1FAHP3HN4AW295561| 3650|
 |Volkswagen     |New Beetle                    |2009|2244.76|1FTEX1CM5BF223945| 3597|
-|Mitsubishi     |Lancer Evolution              |2005| 1945.6|1D7RV1GP4BS182140| 4206|
-|Ford           |LTD Crown Victoria            |1986|2550.26|1FBAX2CM5FK405912| 3650|
-|Isuzu          |Space                         |1992|1712.98|WDDEJ7EB8EA995141| 2674|
-|Chevrolet      |Venture                       |2003|2157.82|1B3AZ6JZ7AV071826| 3298|
-|Land Rover     |Range Rover                   |1998|1779.05|19UUA65556A724969| 3572|
 |Nissan         |Frontier                      |1998|1657.66|WBAUN13528V195997| 3099|
-|Volvo          |S80                           |2000|2221.45|WUADNAFG1BN021798| 2362|
 |Hyundai        |Elantra                       |2008|2367.49|5J8TB1H54CA089083| 3007|
-|Lexus          |LX                            |2007| 1816.5|KMHCT4AE0EU606707| 2278|
 |Volvo          |960                           |1993|3241.04|1D7RV1GT3BS815028| 2311|
-|Volkswagen     |Golf                          |2003|3195.06|1G6DW6EDXB0594035| 3040|
-|Honda          |Pilot                         |2007|3108.23|3C4PDCBB2DT176799| 2608|
+|Chevrolet      |Silverado 2500                |2005|2656.36|WBAKE5C59CJ494112| 3711|
 |Spyker         |C8 Laviolette                 |2004|2974.72|2C3CCAST3CH200943| 3435|
 |Audi           |A8                            |2007|2241.42|3C6JD7BP3CG386495| 2085|
-|Chevrolet      |Silverado 2500                |2005|2656.36|WBAKE5C59CJ494112| 3711|
-|Ford           |F-250 Super Duty              |2006|2669.71|3GYFNFE32CS056823| 3300|
-|Bentley        |Continental                   |2006|3028.67|1D7RB1GT7BS761693| 3482|
-|Ford           |Festiva                       |1990| 2538.7|1G6DJ5E38C0139363| 2612|
-|Audi           |S4                            |2010|1841.73|WAUAH68DX1A262723| 2139|
 |Buick          |Century                       |1991|1634.86|1GD02ZCG2EF968043| 2835|
-|Chrysler       |Sebring                       |2002|2986.73|3D7TT2CT9BG498614| 3180|
-|Chevrolet      |Tahoe                         |2008|2504.88|2G4WD552X61426180| 2984|
+|Audi           |S4                            |2010|1841.73|WAUAH68DX1A262723| 2139|
 |Mazda          |MPV                           |2003|3192.96|1G6DU6EV2A0209130| 2299|
-|Oldsmobile     |Alero                         |1999|1604.84|WP1AA2A27BL214171| 3122|
-|Hyundai        |Scoupe                        |1995|2309.03|WBALM7C57CE766121| 2960|
-|Pontiac        |Grand Prix                    |2003|2688.62|WA1LMBFEXED852320| 3316|
-|Honda          |Civic                         |2008|2112.78|1GD21ZCG4CZ565690| 2584|
 |Lexus          |GS                            |2006|2167.39|WA1CFBFP2CA298054| 2297|
-|Porsche        |924                           |1988|1634.25|KNAFX6A85F5184132| 2490|
 |Jeep           |Patriot                       |2007|2102.85|1FTMF1EW9AF081403| 2731|
-|Subaru         |Leone                         |1987|2733.37|WAUBH74F07N382100| 2736|
-|Lamborghini    |Gallardo                      |2003|2143.18|WBA3A9G51CN830765| 3514|
 |Dodge          |Ram 1500                      |1999| 1563.9|WAULL44E16N854604| 2589|
-|Pontiac        |Trans Sport                   |1998|3117.07|3D4PG5FV3AT436195| 3425|
-|Chevrolet      |Malibu                        |2011|2804.19|3C63D3KL3CG554909| 3098|
 |Ford           |Excursion                     |2004|2895.54|WAUBH78E07A961077| 2961|
-|Volvo          |C70                           |2003|2659.58|WAUPL58E85A484968| 2342|
-|Scion          |xB                            |2012|2808.58|JN1CV6AP0AM286331| 2310|
-|Honda          |Civic                         |1997| 3488.2|1N4AB7AP2DN408081| 2528|
+|Pontiac        |Trans Sport                   |1998|3117.07|3D4PG5FV3AT436195| 3425|
 |Mazda          |Tribute                       |2010|2108.04|1G6DC1E30E0770341| 2725|
-|Hyundai        |Equus                         |2011|2545.11|YV440MBK3F1897998| 2854|
-|Ford           |Explorer                      |1997|2684.64|JN1AZ4EH5EM933279| 2895|
-|Pontiac        |GTO                           |2006|3136.16|JA32X8HW7EU444387| 2576|
-|Pontiac        |Firebird Formula              |1999|2641.63|JM3TB2MA1A0841307| 3876|
 |Chrysler       |300                           |2011|   2220|1FADP5AU3FL847779| 2447|
+|Ford           |Explorer                      |1997|2684.64|JN1AZ4EH5EM933279| 2895|
 |Volvo          |850                           |1996|2426.39|WBAFU9C59CC984632| 2329|
-|Ford           |Explorer Sport Trac           |2003|1801.55|5GAKRDED4CJ400094| 3838|
-|Pontiac        |Tempest                       |1966|1912.46|1GYEC63877R354955| 3044|
-|Toyota         |Prius                         |2007|3442.81|JN8AF5MR6CT199734| 2809|
-|Volkswagen     |Golf                          |1990|3040.07|1G6DC67A380067278| 2964|
-|Eagle          |Vision                        |1993|2965.88|1G4CW54K954460385| 2678|
 |BMW            |M                             |2001|2765.11|NM0AS8F78E1581294| 1881|
+|Toyota         |Prius                         |2007|3442.81|JN8AF5MR6CT199734| 2809|
 |Chevrolet      |Suburban 2500                 |2002|3304.49|1GKS1KE0XCR533567| 3631|
-|Audi           |Allroad                       |2002|1534.94|1C3CCBAB4CN476943| 2662|
-|Dodge          |Charger                       |2010|1698.54|1C4AJWAG3FL378109| 2788|
 |Chevrolet      |S10                           |1998|1816.78|3GYFNCE33DS744572| 2769|
-|Pontiac        |Trans Sport                   |1990|2552.33|1C4RDHDG8CC971140| 3400|
-|Kia            |Optima                        |2006|2844.13|YV126MFK6F2922190| 2486|
 |Audi           |80                            |1989|2433.23|WAUEF78E17A668324| 2103|
 |Dodge          |Dakota                        |2009|2042.16|JN1BY0AR8AM636824| 2697|
 |Kia            |Spectra                       |2002|2782.48|JN8AF5MR8ET079128| 2639|
-|Ford           |F250                          |2005|3096.32|1FBNE3BL5DD848312| 2200|
-|Chevrolet      |Venture                       |2003|3010.59|1G4GA5GR2EF535845| 3255|
 |Cadillac       |DeVille                       |1993|2148.29|JTJBC1BA2C2737136| 3059|
-|Mazda          |Mazda3                        |2004|   1553|KL4CJDSB7EB256898| 2518|
+|Chevrolet      |Venture                       |2003|3010.59|1G4GA5GR2EF535845| 3255|
 |Mercury        |Tracer                        |1992|1919.47|3D7LT2ET8BG478044| 2975|
 |MINI           |Cooper                        |2002|2236.25|1C4AJWAG6EL494404| 2509|
-|Subaru         |Justy                         |1992|1674.89|WAUGL78EX7A749548| 2848|
-|GMC            |Sonoma Club Coupe             |1994| 3464.1|19UYA42702A903698| 3305|
-|Buick          |Riviera                       |1998| 2214.9|WBAFR1C53BD043284| 2772|
-|Kia            |Sportage                      |2008|3009.62|3D73Y3CL7AG237763| 2685|
-|BMW            |Alpina B7                     |2008|1699.73|1FTSX2A58AE575426| 2600|
-|Ford           |Escort                        |1985|3291.33|1FAHP2D88DG371792| 2611|
-|GMC            |Sierra 2500                   |2010|2406.07|WAUAFAFH7BN219286| 2702|
-|BMW            |8 Series                      |1994|2450.78|1FTWW3A59AE925995| 2576|
 |Nissan         |Cube                          |2012|3285.66|2C3CCAPT9CH703532| 2599|
+|Ford           |Escort                        |1985|3291.33|1FAHP2D88DG371792| 2611|
+|GMC            |Sonoma Club Coupe             |1994| 3464.1|19UYA42702A903698| 3305|
+|Kia            |Sportage                      |2008|3009.62|3D73Y3CL7AG237763| 2685|
 |BMW            |7 Series                      |2003|2053.99|YV1382MW2A2746580| 2523|
-|Cadillac       |Seville                       |2000|1726.63|WAUKFBFL9BN124503| 3156|
 |Ford           |Mustang                       |1994|2142.19|5TDDK3DC0FS725217| 2745|
 -------------------------------------------------------------------------------------
 

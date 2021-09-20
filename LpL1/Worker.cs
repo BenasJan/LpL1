@@ -31,18 +31,21 @@ namespace LpL1
                 }
                 
                 var hash = CalculateVehicleHash(vehicle);
-                
-                var newProcessedVehicle = new ProcessedVehicle
-                {
-                    Manufacturer = vehicle.Manufacturer,
-                    Model = vehicle.Model,
-                    Price = vehicle.Price,
-                    YearManufactured = vehicle.YearManufactured,
-                    VinNumber = vehicle.VinNumber,
-                    Hash = hash
-                };
 
-                ResultMonitor.AddItem(newProcessedVehicle);
+                if (hash.EndsWithOddNumber())
+                {
+                    var newProcessedVehicle = new ProcessedVehicle
+                    {
+                        Manufacturer = vehicle.Manufacturer,
+                        Model = vehicle.Model,
+                        Price = vehicle.Price,
+                        YearManufactured = vehicle.YearManufactured,
+                        VinNumber = vehicle.VinNumber,
+                        Hash = hash
+                    };
+
+                    ResultMonitor.AddItem(newProcessedVehicle);
+                }
             }
 
             Console.WriteLine("Worker has finished execution");
