@@ -2,47 +2,40 @@ Vehicles:
 -------------------------------------------------------------------------------------
 |Manufacturer   |Model                         |Year|Price  |VIN              |Hash |
 -------------------------------------------------------------------------------------
-|Hummer         |H3                            |2006| 1865.5|WAUML44D42N969753| 2325|
-|Buick          |Rainier                       |2005|2192.14|WDDNG7BB5AA221345| 2807|
-|Audi           |A4                            |1999|2721.65|1B3CB1HA3AD612747| 2065|
-|Saab           |9-2X                          |2005| 3445.6|2G61R5S34D9430921| 2099|
-|Subaru         |Brat                          |1986|2630.99|YV1382MSXA2303560| 2647|
-|Chrysler       |300M                          |2000|1843.37|1D4PU5GK1BW889689| 2693|
-|Volkswagen     |New Beetle                    |2009|2244.76|1FTEX1CM5BF223945| 3597|
-|Nissan         |Frontier                      |1998|1657.66|WBAUN13528V195997| 3099|
-|Hyundai        |Elantra                       |2008|2367.49|5J8TB1H54CA089083| 3007|
-|Volvo          |960                           |1993|3241.04|1D7RV1GT3BS815028| 2311|
 |Chevrolet      |Silverado 2500                |2005|2656.36|WBAKE5C59CJ494112| 3711|
-|Spyker         |C8 Laviolette                 |2004|2974.72|2C3CCAST3CH200943| 3435|
-|Audi           |A8                            |2007|2241.42|3C6JD7BP3CG386495| 2085|
-|Buick          |Century                       |1991|1634.86|1GD02ZCG2EF968043| 2835|
-|Audi           |S4                            |2010|1841.73|WAUAH68DX1A262723| 2139|
-|Mazda          |MPV                           |2003|3192.96|1G6DU6EV2A0209130| 2299|
-|Lexus          |GS                            |2006|2167.39|WA1CFBFP2CA298054| 2297|
-|Jeep           |Patriot                       |2007|2102.85|1FTMF1EW9AF081403| 2731|
-|Dodge          |Ram 1500                      |1999| 1563.9|WAULL44E16N854604| 2589|
-|Ford           |Excursion                     |2004|2895.54|WAUBH78E07A961077| 2961|
-|Pontiac        |Trans Sport                   |1998|3117.07|3D4PG5FV3AT436195| 3425|
-|Mazda          |Tribute                       |2010|2108.04|1G6DC1E30E0770341| 2725|
-|Chrysler       |300                           |2011|   2220|1FADP5AU3FL847779| 2447|
-|Ford           |Explorer                      |1997|2684.64|JN1AZ4EH5EM933279| 2895|
-|Volvo          |850                           |1996|2426.39|WBAFU9C59CC984632| 2329|
-|BMW            |M                             |2001|2765.11|NM0AS8F78E1581294| 1881|
-|Toyota         |Prius                         |2007|3442.81|JN8AF5MR6CT199734| 2809|
 |Chevrolet      |Suburban 2500                 |2002|3304.49|1GKS1KE0XCR533567| 3631|
-|Chevrolet      |S10                           |1998|1816.78|3GYFNCE33DS744572| 2769|
-|Audi           |80                            |1989|2433.23|WAUEF78E17A668324| 2103|
-|Dodge          |Dakota                        |2009|2042.16|JN1BY0AR8AM636824| 2697|
-|Kia            |Spectra                       |2002|2782.48|JN8AF5MR8ET079128| 2639|
-|Cadillac       |DeVille                       |1993|2148.29|JTJBC1BA2C2737136| 3059|
-|Chevrolet      |Venture                       |2003|3010.59|1G4GA5GR2EF535845| 3255|
-|Mercury        |Tracer                        |1992|1919.47|3D7LT2ET8BG478044| 2975|
-|MINI           |Cooper                        |2002|2236.25|1C4AJWAG6EL494404| 2509|
-|Nissan         |Cube                          |2012|3285.66|2C3CCAPT9CH703532| 2599|
-|Ford           |Escort                        |1985|3291.33|1FAHP2D88DG371792| 2611|
+|Volkswagen     |New Beetle                    |2009|2244.76|1FTEX1CM5BF223945| 3597|
+|Spyker         |C8 Laviolette                 |2004|2974.72|2C3CCAST3CH200943| 3435|
+|Pontiac        |Trans Sport                   |1998|3117.07|3D4PG5FV3AT436195| 3425|
 |GMC            |Sonoma Club Coupe             |1994| 3464.1|19UYA42702A903698| 3305|
-|Kia            |Sportage                      |2008|3009.62|3D73Y3CL7AG237763| 2685|
-|BMW            |7 Series                      |2003|2053.99|YV1382MW2A2746580| 2523|
+|Chevrolet      |Venture                       |2003|3010.59|1G4GA5GR2EF535845| 3255|
+|Nissan         |Frontier                      |1998|1657.66|WBAUN13528V195997| 3099|
+|Cadillac       |DeVille                       |1993|2148.29|JTJBC1BA2C2737136| 3059|
+|Hyundai        |Elantra                       |2008|2367.49|5J8TB1H54CA089083| 3007|
+|Mercury        |Tracer                        |1992|1919.47|3D7LT2ET8BG478044| 2975|
+|Ford           |Excursion                     |2004|2895.54|WAUBH78E07A961077| 2961|
+|Ford           |Explorer                      |1997|2684.64|JN1AZ4EH5EM933279| 2895|
+|Buick          |Century                       |1991|1634.86|1GD02ZCG2EF968043| 2835|
+|Toyota         |Prius                         |2007|3442.81|JN8AF5MR6CT199734| 2809|
+|Buick          |Rainier                       |2005|2192.14|WDDNG7BB5AA221345| 2807|
+|Chevrolet      |S10                           |1998|1816.78|3GYFNCE33DS744572| 2769|
 |Ford           |Mustang                       |1994|2142.19|5TDDK3DC0FS725217| 2745|
+|Jeep           |Patriot                       |2007|2102.85|1FTMF1EW9AF081403| 2731|
+|Mazda          |Tribute                       |2010|2108.04|1G6DC1E30E0770341| 2725|
+|Dodge          |Dakota                        |2009|2042.16|JN1BY0AR8AM636824| 2697|
+|Chrysler       |300M                          |2000|1843.37|1D4PU5GK1BW889689| 2693|
+|Kia            |Sportage                      |2008|3009.62|3D73Y3CL7AG237763| 2685|
+|Subaru         |Brat                          |1986|2630.99|YV1382MSXA2303560| 2647|
+|Kia            |Spectra                       |2002|2782.48|JN8AF5MR8ET079128| 2639|
+|Ford           |Escort                        |1985|3291.33|1FAHP2D88DG371792| 2611|
+|Nissan         |Cube                          |2012|3285.66|2C3CCAPT9CH703532| 2599|
+|Dodge          |Ram 1500                      |1999| 1563.9|WAULL44E16N854604| 2589|
+|BMW            |7 Series                      |2003|2053.99|YV1382MW2A2746580| 2523|
+|MINI           |Cooper                        |2002|2236.25|1C4AJWAG6EL494404| 2509|
+|Chrysler       |300                           |2011|   2220|1FADP5AU3FL847779| 2447|
+|Volvo          |850                           |1996|2426.39|WBAFU9C59CC984632| 2329|
+|Hummer         |H3                            |2006| 1865.5|WAUML44D42N969753| 2325|
+|Volvo          |960                           |1993|3241.04|1D7RV1GT3BS815028| 2311|
+|Mazda          |MPV                           |2003|3192.96|1G6DU6EV2A0209130| 2299|
 -------------------------------------------------------------------------------------
 

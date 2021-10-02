@@ -1,55 +1,64 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using LpL1.Models;
 
 namespace LpL1.Monitors
 {
     public class DataMonitor : IEnumerable<Vehicle>
     {
-        private readonly object _padlock = new ();
-        public bool ItemsExist => _maxSize > _takenItemsCount;
-        private bool AllItemsAdded => !(_maxSize > _addedItemsCount);
-        
-        private int _lastIndex = -1;
+        public bool AllDataUploaded { get; set; } = false;
+
         private Vehicle[] Data { get; set; }
-        private int _maxSize;
-        private int _addedItemsCount;
-        private int _takenItemsCount;
+        private readonly int _maxSize;
+        private int _lastItemIndex = -1;
+        private int _count = 0;
 
         public DataMonitor(int size)
         {
-            _maxSize = size;
-            Data = new Vehicle[size];
+            _maxSize = size / 2;
+            Data = new Vehicle[size / 2];
         }
 
-        public void AddItem(Vehicle newItem)
+        public void AddItem(Vehicle item)
         {
-            lock (_padlock)
+            Monitor.Enter(Data);
+            while(_count == _maxSize)
             {
-                if (_lastIndex >= Data.Length || AllItemsAdded)
-                { 
-                    throw new IndexOutOfRangeException("No more space in data monitor left");
-                }
-            
-                _lastIndex++;
-                Data[_lastIndex] = newItem;
-                _addedItemsCount++;
+                Monitor.Wait(Data);
             }
+            _lastItemIndex++;
+            _count++;
+            Data[_lastItemIndex] = item;
+            Monitor.Pulse(Data);
+            Monitor.Exit(Data);
         }
 
         public Vehicle GetItem()
         {
-            lock (_padlock)
+            Monitor.Enter(Data);
+            
+            while(_count == 0)
             {
-                var vehicleToReturn = Data[_lastIndex];
-            
-                Data[_lastIndex] = null;
-                _lastIndex = _lastIndex <= 0 ? 0 : _lastIndex - 1;
-                _takenItemsCount++;
-            
-                return vehicleToReturn;
+                if (AllDataUploaded)
+                {
+                    Monitor.Pulse(Data);
+                    Monitor.Exit(Data);
+                    return null;
+                }
+                Monitor.Wait(Data);
             }
+            
+            var result = Data[_lastItemIndex];
+            Data[_lastItemIndex] = null;
+            
+            _lastItemIndex--;
+            _count--;
+            
+            Monitor.Pulse(Data);
+            Monitor.Exit(Data);
+            
+            return result;
         }
 
         public IEnumerator<Vehicle> GetEnumerator()
@@ -60,11 +69,6 @@ namespace LpL1.Monitors
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
-        }
-
-        public void UpdateMaxSize(int updatedMaxSize)
-        {
-            _maxSize = updatedMaxSize;
         }
     }
 }

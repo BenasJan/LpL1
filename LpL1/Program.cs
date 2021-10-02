@@ -15,8 +15,8 @@ namespace LpL1
 
             var threads = ThreadService.GetThreads(dataMonitor, resultMonitor);
             
-            var validVehicleCount = 0;
             ThreadService.StartThreads(threads);
+            
             foreach (var vehicle in
                 from vehicle
                 in vehicles
@@ -25,9 +25,9 @@ namespace LpL1
                 select vehicle)
             {
                 dataMonitor.AddItem(vehicle);
-                validVehicleCount++;
             }
-            dataMonitor.UpdateMaxSize(validVehicleCount);
+
+            dataMonitor.AllDataUploaded = true;
             
             ThreadService.JoinThreads(threads);
             

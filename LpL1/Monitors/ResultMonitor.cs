@@ -1,13 +1,17 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Runtime.InteropServices;
+using System.Threading;
 using LpL1.Models;
 
 namespace LpL1.Monitors
 {
     public class ResultMonitor
     {
-        private static readonly object AddItemPadlock = new();
-        private int _lastIndex = -1;
+        private int _lastItemIndex = -1;
         private ProcessedVehicle[] Data { get; }
+        private bool IsEmpty => Data[0] == null;
+
 
         public ResultMonitor(int size)
         {
@@ -16,14 +20,34 @@ namespace LpL1.Monitors
 
         public void AddItem(ProcessedVehicle processedVehicle)
         {
-            lock (AddItemPadlock)
+            Monitor.Enter(Data);
+
+            if (IsEmpty)
             {
-                _lastIndex++;
-                // Console.WriteLine($"INSERTING INTO RESULT MONITOR:\nLAST INDEX: {_lastIndex}\nDATA SIZE: {Data.Length}");
-                Data[_lastIndex] = processedVehicle;
+                _lastItemIndex++;
+                Data[_lastItemIndex] = processedVehicle;
             }
+            else
+            {
+                for (var i = 0; i <= _lastItemIndex; i++)
+                {
+                    if (int.Parse(processedVehicle.Hash) > int.Parse(Data[i].Hash))
+                    {
+                        for (var j = _lastItemIndex + 1; j > i ; j--)
+                        {
+                            Data[j] = Data[j - 1];
+                        }
+            
+                        Data[i] = processedVehicle;
+                        _lastItemIndex++;
+                        break;
+                    }
+                }
+            }
+            
+            Monitor.Exit(Data);
         }
-        
+
         public void PrintToFile(string fileName)
         {
             var tableBorder = new string('-', 85);

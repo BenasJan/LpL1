@@ -21,15 +21,15 @@ namespace LpL1
         {
             Console.WriteLine($"Worker (ID: {_workerId}) is starting execution");
             
-            while (DataMonitor.ItemsExist)
+            while (true)
             {
                 var vehicle = DataMonitor.GetItem();
-                
-                if (vehicle == null)
+                if (vehicle == null && DataMonitor.AllDataUploaded)
                 {
-                    continue;
+                    Console.WriteLine($"Worker (ID: {_workerId}) has finished execution");
+                    break;
                 }
-                
+
                 var hash = CalculateVehicleHash(vehicle);
 
                 if (hash.EndsWithOddNumber())
@@ -47,8 +47,6 @@ namespace LpL1
                     ResultMonitor.AddItem(newProcessedVehicle);
                 }
             }
-
-            Console.WriteLine("Worker has finished execution");
         }
 
         private string CalculateVehicleHash(Vehicle vehicle)
