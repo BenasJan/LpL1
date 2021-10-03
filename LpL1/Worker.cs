@@ -7,8 +7,8 @@ namespace LpL1
     public class Worker
     {
         private readonly Guid _workerId;
-        private DataMonitor DataMonitor { get; set; }
-        private ResultMonitor ResultMonitor { get; set; }
+        private DataMonitor DataMonitor { get; }
+        private ResultMonitor ResultMonitor { get; }
         
         public Worker(ResultMonitor resultMonitor, DataMonitor dataMonitor)
         {

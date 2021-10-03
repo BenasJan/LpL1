@@ -7,7 +7,7 @@ namespace LpL1.Monitors
 {
     public class DataMonitor : IEnumerable<Vehicle>
     {
-        public bool AllDataUploaded { get; set; } = false;
+        public bool AllDataUploaded { get; set; }
 
         private Vehicle[] Data { get; set; }
         private readonly int _maxSize;

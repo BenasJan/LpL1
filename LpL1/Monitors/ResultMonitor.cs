@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Runtime.InteropServices;
+﻿using System.IO;
 using System.Threading;
 using LpL1.Models;
 
@@ -29,6 +27,8 @@ namespace LpL1.Monitors
             }
             else
             {
+                var isInserted = false;
+                
                 for (var i = 0; i <= _lastItemIndex; i++)
                 {
                     if (int.Parse(processedVehicle.Hash) > int.Parse(Data[i].Hash))
@@ -40,8 +40,15 @@ namespace LpL1.Monitors
             
                         Data[i] = processedVehicle;
                         _lastItemIndex++;
+                        isInserted = true;
                         break;
                     }
+                }
+
+                if (!isInserted)
+                {
+                    _lastItemIndex++;
+                    Data[_lastItemIndex] = processedVehicle;
                 }
             }
             
@@ -68,7 +75,6 @@ namespace LpL1.Monitors
                 }
             }
             outputFileStream.WriteLine(tableBorder);
-            outputFileStream.WriteLine();
         }
     }
 }
